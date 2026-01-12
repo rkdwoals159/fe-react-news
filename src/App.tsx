@@ -1,6 +1,6 @@
 import Header from './components/Header/Header'
-import Rolling from './components/Rolling'
-import MainContent from './components/MainContent'
+import Rolling from './components/Rolling/Rolling'
+import MainContent from './components/MainContent/MainContent'
 
 function App() {
   return (
