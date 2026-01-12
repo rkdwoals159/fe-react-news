@@ -1,4 +1,4 @@
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Rolling from './components/Rolling'
 import MainContent from './components/MainContent'
 
