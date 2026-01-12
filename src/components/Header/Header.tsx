@@ -3,7 +3,7 @@ import Date from './Date'
 
 export default function Header() {
   return (
-    <div>
+    <div className='flex justify-between'>
         <Logo />
         <Date />
     </div>
