@@ -1,4 +1,4 @@
-import { DAY_NAMES } from "./constants";
+import { DAY_NAMES } from "@/utils/constants";
 
 export default function getDate() {
   const now = new Date();

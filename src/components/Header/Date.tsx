@@ -1,4 +1,4 @@
-import getDate from "../../utils/getDate";
+import getDate from "@/utils/getDate";
 
 export default function Date() {
   const { yyyy, mm, dd, day } = getDate();

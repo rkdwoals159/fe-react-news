@@ -1,5 +1,5 @@
-import Logo from './Logo'
-import Date from './Date'
+import Logo from "@/components/Header/Logo";
+import Date from "@/components/Header/Date";
 
 export default function Header() {
   return (
@@ -11,5 +11,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

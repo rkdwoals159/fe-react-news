@@ -1,4 +1,4 @@
-import HeaderIcon from '../../utils/icons'
+import HeaderIcon from "@/utils/icons";
 
 export default function Logo() {
   return (
@@ -13,5 +13,5 @@ export default function Logo() {
         <span className="display-bold24 text-strong">뉴스스탠드</span>
       </a>
     </h1>
-  )
+  );
 }
