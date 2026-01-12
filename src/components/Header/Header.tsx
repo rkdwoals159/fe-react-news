@@ -3,9 +3,13 @@ import Date from './Date'
 
 export default function Header() {
   return (
-    <div className='flex justify-between'>
+    <header className="bg-surface-default">
+      <div className="mx-auto flex h-[88px] w-[930px] max-w-[calc(100%-48px)] items-center justify-between gap-4">
         <Logo />
-        <Date />
-    </div>
+        <div className="flex items-center gap-[10px]">
+          <Date />
+        </div>
+      </div>
+    </header>
   )
 }
