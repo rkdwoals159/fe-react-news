@@ -6,9 +6,7 @@ export default function Header() {
     <header className="bg-surface-default">
       <div className="flex h-[88px] items-center justify-between gap-4">
         <Logo />
-        <div className="flex items-center gap-[10px]">
-          <Date />
-        </div>
+        <Date />
       </div>
     </header>
   );
