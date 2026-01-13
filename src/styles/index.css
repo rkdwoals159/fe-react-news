@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+/* class 기반 다크모드 쓰려면(Next Theme/shadcn 스타일) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================
+   Theme Tokens (Tailwind v4)
+   ========================= */
+@theme {
+  /* ===== Palette (Color Default Value) ===== */
+  --color-grayscale-white: #FFFFFF;
+  --color-grayscale-white-alt: color-mix(in srgb, #FFFFFF 70%, transparent); /* #FFFFFF(70%) 느낌 */
+
+  --color-grayscale-50: #F5F7F9;
+  --color-grayscale-100: #D2DAE0;
+  --color-grayscale-200: #879298;
+  --color-grayscale-300: #6E8091;
+  --color-grayscale-400: #5F6E76;
+  --color-grayscale-500: #4B5966;
+  --color-grayscale-black: #14212B;
+
+  --color-blue-100: #7890E7;
+  --color-blue-500: #4362D0;
+
+  /* ===== Semantic Colors: Light Mode (Color System: Light Mode) ===== */
+  --color-strong: var(--color-grayscale-black);
+  --color-bold: var(--color-grayscale-500);
+  --color-default: var(--color-grayscale-400);
+  --color-weak: var(--color-grayscale-200);
+
+  --color-white-default: var(--color-grayscale-white);
+  --color-white-weak: var(--color-grayscale-white-alt);
+
+  --color-point: var(--color-blue-500);
+
+  --color-surface-default: var(--color-grayscale-white);
+  --color-surface-alt: var(--color-grayscale-50);
+  --color-surface-brand-default: var(--color-blue-500);
+  --color-surface-brand-alt: var(--color-blue-100);
+
+  --color-border-bold: var(--color-grayscale-300);
+  --color-border-default: var(--color-grayscale-100);
+
+  /* ===== Object Styles ===== */
+  --radius-radiusFull: 999px;
+  --radius-radius100: 8px;
+
+  /* Border */
+  --border-width-border-default: 1px;
+
+  /* Drop Shadow (popup) */
+  --shadow-popup: 0 4px 2px rgb(20 33 43 / 0.02), 0 2px 18px rgb(20 33 43 / 0.08);
+
+  /* ===== Font ===== */
+  --font-sans: "Pretendard Variable", Pretendard, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Apple Color Emoji", "Segoe UI Emoji";
+
+  /* ===== Typography Default Values =====
+     토큰을 “클래스”로 쓰기 위해 size/leading/weight 변수로 둠
+  */
+  --typo-display-bold24-size: 24px;
+  --typo-display-bold24-leading: 1;
+  --typo-display-bold24-weight: 700;
+
+  --typo-display-bold16-size: 16px;
+  --typo-display-bold16-leading: 1;
+  --typo-display-bold16-weight: 700;
+
+  --typo-display-bold14-size: 14px;
+  --typo-display-bold14-leading: 1;
+  --typo-display-bold14-weight: 700;
+
+  --typo-display-bold12-size: 12px;
+  --typo-display-bold12-leading: 1;
+  --typo-display-bold12-weight: 700;
+
+  --typo-display-medium16-size: 16px;
+  --typo-display-medium16-leading: 22px;
+  --typo-display-medium16-weight: 500;
+
+  --typo-display-medium14-size: 14px;
+  --typo-display-medium14-leading: 1;
+  --typo-display-medium14-weight: 500;
+
+  --typo-display-medium12-size: 12px;
+  --typo-display-medium12-leading: 1;
+  --typo-display-medium12-weight: 500;
+
+  /* selected / available은 스샷상 동일 값이라 alias처럼 */
+  --typo-selected-bold16-size: 16px;
+  --typo-selected-bold16-leading: 1;
+  --typo-selected-bold16-weight: 700;
+
+  --typo-selected-bold14-size: 14px;
+  --typo-selected-bold14-leading: 1;
+  --typo-selected-bold14-weight: 700;
+
+  --typo-available-medium16-size: 16px;
+  --typo-available-medium16-leading: 22px;
+  --typo-available-medium16-weight: 500;
+
+  --typo-available-medium14-size: 14px;
+  --typo-available-medium14-leading: 1;
+  --typo-available-medium14-weight: 500;
+
+  --typo-available-medium12-size: 12px;
+  --typo-available-medium12-leading: 1;
+  --typo-available-medium12-weight: 500;
+
+  /* hover는 underline 포함 */
+  --typo-hover-medium16-size: 16px;
+  --typo-hover-medium16-leading: 22px;
+  --typo-hover-medium16-weight: 500;
+
+  --typo-hover-medium14-size: 14px;
+  --typo-hover-medium14-leading: 1;
+  --typo-hover-medium14-weight: 500;
+}
+
+/* ===== Semantic Colors: Dark Mode (Color System: Dark Mode) ===== */
+.dark {
+  --color-text-strong: var(--color-grayscale-white);
+  --color-text-bold: var(--color-grayscale-50);
+  --color-text-default: var(--color-grayscale-100);
+  --color-text-weak: var(--color-grayscale-white-alt);
+
+  --color-text-white-default: var(--color-grayscale-white);
+  --color-text-white-weak: var(--color-grayscale-white-alt);
+
+  --color-text-point: var(--color-blue-500);
+
+  --color-surface-default: var(--color-grayscale-black);
+  --color-surface-alt: var(--color-grayscale-500);
+  --color-surface-brand-default: var(--color-blue-500);
+  --color-surface-brand-alt: var(--color-blue-100);
+
+  --color-border-bold: var(--color-grayscale-white-alt);
+  --color-border-default: var(--color-grayscale-400);
+}
+
+/* =========================
+   Typography Token Utilities
+   ========================= */
+@utility display-bold24 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-display-bold24-size);
+  line-height: var(--typo-display-bold24-leading);
+  font-weight: var(--typo-display-bold24-weight);
+}
+
+@utility display-bold16 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-display-bold16-size);
+  line-height: var(--typo-display-bold16-leading);
+  font-weight: var(--typo-display-bold16-weight);
+}
+
+@utility display-bold14 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-display-bold14-size);
+  line-height: var(--typo-display-bold14-leading);
+  font-weight: var(--typo-display-bold14-weight);
+}
+
+@utility display-bold12 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-display-bold12-size);
+  line-height: var(--typo-display-bold12-leading);
+  font-weight: var(--typo-display-bold12-weight);
+}
+
+@utility display-medium16 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-display-medium16-size);
+  line-height: var(--typo-display-medium16-leading);
+  font-weight: var(--typo-display-medium16-weight);
+}
+
+@utility display-medium14 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-display-medium14-size);
+  line-height: var(--typo-display-medium14-leading);
+  font-weight: var(--typo-display-medium14-weight);
+}
+
+@utility display-medium12 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-display-medium12-size);
+  line-height: var(--typo-display-medium12-leading);
+  font-weight: var(--typo-display-medium12-weight);
+}
+
+@utility selected-bold16 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-selected-bold16-size);
+  line-height: var(--typo-selected-bold16-leading);
+  font-weight: var(--typo-selected-bold16-weight);
+}
+
+@utility selected-bold14 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-selected-bold14-size);
+  line-height: var(--typo-selected-bold14-leading);
+  font-weight: var(--typo-selected-bold14-weight);
+}
+
+@utility available-medium16 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-available-medium16-size);
+  line-height: var(--typo-available-medium16-leading);
+  font-weight: var(--typo-available-medium16-weight);
+}
+
+@utility available-medium14 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-available-medium14-size);
+  line-height: var(--typo-available-medium14-leading);
+  font-weight: var(--typo-available-medium14-weight);
+}
+
+@utility available-medium12 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-available-medium12-size);
+  line-height: var(--typo-available-medium12-leading);
+  font-weight: var(--typo-available-medium12-weight);
+}
+
+@utility hover-medium16 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-hover-medium16-size);
+  line-height: var(--typo-hover-medium16-leading);
+  font-weight: var(--typo-hover-medium16-weight);
+  text-decoration-line: underline;
+}
+
+@utility hover-medium14 {
+  font-family: var(--font-sans);
+  font-size: var(--typo-hover-medium14-size);
+  line-height: var(--typo-hover-medium14-leading);
+  font-weight: var(--typo-hover-medium14-weight);
+  text-decoration-line: underline;
+}
