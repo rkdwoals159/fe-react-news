@@ -2,7 +2,7 @@ import { DAY_NAMES } from "@/utils/constants";
 
 export default function getDate() {
   const now = new Date();
-  const yyyy = now.getFullYear();
+  const yyyy = now.getFullYear().toString().padStart(4, "0");
   const mm = String(now.getMonth() + 1).padStart(2, "0");
   const dd = String(now.getDate()).padStart(2, "0");
   const day = DAY_NAMES[now.getDay()];

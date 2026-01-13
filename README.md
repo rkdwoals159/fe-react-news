@@ -46,9 +46,9 @@
 ## 1/13(화) ToDo list
 
 - 롤링
-  - [ ] Rolling 섹션 퍼블리싱
-  - [ ] Rolling Card 컴포넌트 퍼블리싱
-  - [ ] 롤링 기능 개발 및 적용
+  - [x] Rolling 섹션 퍼블리싱
+  - [x] Rolling Card 컴포넌트 퍼블리싱
+  - [x] 롤링 기능 개발 및 적용
 
 - 메인컨텐츠
   - [ ] MainContent 섹션 퍼블리싱

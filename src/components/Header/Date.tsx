@@ -1,14 +1,15 @@
 import getDate from "@/utils/getDate";
+import { useState } from "react";
 
 export default function Date() {
-  const { yyyy, mm, dd, day } = getDate();
+  const [date] = useState(() => getDate());
 
   return (
     <time
       className="display-medium14 text-default"
-      dateTime={`${yyyy}-${mm}-${dd}`}
+      dateTime={`${date.yyyy}-${date.mm}-${date.dd}`}
     >
-      {`${yyyy}. ${mm}. ${dd}. ${day}`}
+      {`${date.yyyy}. ${date.mm}. ${date.dd}. ${date.day}`}
     </time>
   );
 }

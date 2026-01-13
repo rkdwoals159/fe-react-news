@@ -10,3 +10,6 @@ export const DAY_NAMES = [
 
 export const ROLL_COUNT = 2;
 export const NEWS_PER_ROLL = 5;
+export const INTERVAL_TIME = 5000;
+export const OFFSET_TIME = 1000;
+export const ROLL_ANIMATION_DURATION = 280;
