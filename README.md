@@ -42,3 +42,32 @@
 - [x] 헤더 컴포넌트 설계 및 구현
 - [x] tailwindcss 토큰 추가
 - [x] svg 코드 기반 컴포넌트 추가
+
+## 1/13(화) ToDo list
+
+- 롤링
+  - [ ] Rolling 섹션 퍼블리싱
+  - [ ] Rolling Card 컴포넌트 퍼블리싱
+  - [ ] 롤링 기능 개발 및 적용
+
+- 메인컨텐츠
+  - [ ] MainContent 섹션 퍼블리싱
+  - [ ] View Tab, SubscriptionTab 컴포넌트 퍼블리싱
+  - [ ] GridView / GridCard 컴포넌트 퍼블리싱
+  - [ ] GridView 언론사 데이터 주입
+
+- 기능개발
+  - [ ] 구독기능 개발 / 적용
+  - [ ] Pagination 컴포넌트 퍼블리싱
+  - [ ] Pagination 기능 개발 / 적용
+
+
+## 1/13(수) ToDo list
+
+- [ ] ListView 설계 및 구현
+- [ ] 다크모드 적용
+
+## 1/14(목) ToDo list
+
+- [ ] 기능 테스트 / 버그 체크
+- [ ] 코드/폴더 리팩토링
