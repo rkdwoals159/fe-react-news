@@ -7,3 +7,6 @@ export const DAY_NAMES = [
   "금요일",
   "토요일",
 ];
+
+export const ROLL_COUNT = 2;
+export const NEWS_PER_ROLL = 5;
