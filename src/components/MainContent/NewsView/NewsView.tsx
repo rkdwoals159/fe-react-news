@@ -1,5 +1,3 @@
 export default function NewsView() {
-    return (
-      <div></div>
-    )
+  return <div></div>;
 }

@@ -1,4 +1,4 @@
-import HeaderIcon from "@/utils/icons";
+import { HeaderIcon } from "@/utils/icons";
 
 export default function Logo() {
   return (

@@ -51,9 +51,9 @@
   - [x] 롤링 기능 개발 및 적용
 
 - 메인컨텐츠
-  - [ ] MainContent 섹션 퍼블리싱
-  - [ ] View Tab, SubscriptionTab 컴포넌트 퍼블리싱
-  - [ ] GridView / GridCard 컴포넌트 퍼블리싱
+  - [x] MainContent 섹션 퍼블리싱
+  - [x] View Tab, SubscriptionTab 컴포넌트 퍼블리싱
+  - [x] GridView / GridCard 컴포넌트 퍼블리싱
   - [ ] GridView 언론사 데이터 주입
 
 - 기능개발

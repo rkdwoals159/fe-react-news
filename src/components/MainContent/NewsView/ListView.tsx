@@ -1,5 +1,3 @@
 export default function ListView() {
-    return (
-      <div></div>
-    )
+  return <div></div>;
 }
