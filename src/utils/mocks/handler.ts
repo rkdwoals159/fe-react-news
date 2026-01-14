@@ -1,12 +1,8 @@
 import { http, HttpResponse } from "msw";
 import pressData from "@/../public/mocks/pressData.json";
-import {
-  ROLL_COUNT,
-  NEWS_PER_ROLL,
-  GRID_COLLUMN_COUNT,
-  GRID_ROW_COUNT,
-} from "@/utils/constants";
+import { ROLL_COUNT, NEWS_PER_ROLL, GRID_SIZE } from "@/utils/constants";
 import type { GridViewItem, pressDataType } from "@/types/api.type";
+import convertTo2DArr from "../convertTo2DArr";
 
 export const handlers = [
   http.get("/api/news/rolling", () => {
@@ -23,17 +19,13 @@ export const handlers = [
     return HttpResponse.json(rollingItems);
   }),
   http.get("/api/news/gridView", () => {
-    const GRID_SIZE = GRID_COLLUMN_COUNT * GRID_ROW_COUNT;
-    const gridViewItems = (pressData as pressDataType[]).reduce<
-      GridViewItem[][]
-    >((acc, cur, idx) => {
-      if (idx % GRID_SIZE === 0) acc.push([]);
-      acc[acc.length - 1].push({
-        logo: cur.logo,
-        press: cur.press,
-      });
-      return acc;
-    }, []);
+    const gridViewItems: GridViewItem[][] = convertTo2DArr(
+      (pressData as pressDataType[]).map((item) => ({
+        logo: item.logo,
+        press: item.press,
+      })),
+      GRID_SIZE
+    );
     return HttpResponse.json(gridViewItems);
   }),
 ];

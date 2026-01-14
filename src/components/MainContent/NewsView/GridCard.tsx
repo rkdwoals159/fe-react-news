@@ -1,5 +1,6 @@
 import plusIcon from "@/assets/icons/plus.svg";
 import newspaperIcon from "@/assets/icons/newspaper.svg";
+import { useSubscription } from "@/store/SubscriptionContext";
 
 type GridCardProps = {
   name: string;
@@ -12,6 +13,7 @@ export default function GridCard({
   logoUrl,
   isEmpty = false,
 }: GridCardProps) {
+  const { subscribe } = useSubscription();
   if (isEmpty) {
     return (
       <li className="h-[97px] border border-border-default -ml-px -mt-px" />
@@ -29,6 +31,7 @@ export default function GridCard({
       <button
         className="absolute  left-1/2 top-1/2 inline-flex available-medium12 w-[84px] h-[36px] max-w-[calc(100%-24px)] -translate-x-1/2 -translate-y-[48%] items-center justify-center gap-[10px] rounded-full border-2 border-border-bold bg-surface-default px-2 text-bold opacity-0 transition-all duration-150 group-hover:translate-y-[-50%] group-hover:opacity-100"
         type="button"
+        onClick={() => subscribe(name)}
       >
         <img className="h-[12px] w-[12px]" src={plusIcon} alt="" />
         구독하기

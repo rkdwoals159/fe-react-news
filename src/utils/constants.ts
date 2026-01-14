@@ -16,3 +16,4 @@ export const ROLL_ANIMATION_DURATION = 280;
 
 export const GRID_COLLUMN_COUNT = 6;
 export const GRID_ROW_COUNT = 4;
+export const GRID_SIZE = GRID_COLLUMN_COUNT * GRID_ROW_COUNT;
