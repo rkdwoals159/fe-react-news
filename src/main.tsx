@@ -5,9 +5,7 @@ import "@/styles/index.css";
 import App from "@/App.tsx";
 
 async function enableMocking() {
-  if (import.meta.env.DEV) {
-    return worker.start();
-  }
+  return worker.start();
 }
 
 enableMocking().then(() => {
