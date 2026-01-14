@@ -59,11 +59,11 @@
 ## 1/13(수) ToDo list
 
 - 메인컨텐츠
-  - [ ] GridView 언론사 데이터 주입
+  - [x] GridView 언론사 데이터 주입
+  - [x] GridPagination 기능 개발 / 적용
   - [ ] 구독기능 개발 / 적용  
-  - [ ] Pagination 기능 개발 / 적용
   - [ ] ListView 설계 및 구현
-
+  - [ ] ListPagination 기능 개발 / 적용
 - 기타
   - [ ] 다크모드 적용
 
