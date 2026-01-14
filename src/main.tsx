@@ -5,7 +5,11 @@ import "@/styles/index.css";
 import App from "@/App.tsx";
 
 async function enableMocking() {
-  return worker.start();
+  return worker.start({
+    serviceWorker: {
+      url: `${import.meta.env.BASE_URL}mockServiceWorker.js`,
+    },
+  });
 }
 
 enableMocking().then(() => {
