@@ -13,3 +13,6 @@ export const NEWS_PER_ROLL = 5;
 export const INTERVAL_TIME = 5000;
 export const OFFSET_TIME = 1000;
 export const ROLL_ANIMATION_DURATION = 280;
+
+export const GRID_COLLUMN_COUNT = 6;
+export const GRID_ROW_COUNT = 4;

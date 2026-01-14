@@ -14,3 +14,21 @@ export type RollingCardProps = {
   offset?: number;
   ref?: Ref<RollingCardHandle>;
 };
+
+export type pressDataType = {
+  logo: string;
+  press: string;
+  category: string;
+  totalPage: string;
+  time: string;
+  mainTitle: string;
+  mainLink: string;
+  mainImg: string;
+  relatedArticles: {
+    title: string;
+    link: string;
+  }[];
+  darkLogo: string;
+};
+
+export type GridViewItem = { logo: string; press: string };
