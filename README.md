@@ -54,18 +54,18 @@
   - [x] MainContent 섹션 퍼블리싱
   - [x] View Tab, SubscriptionTab 컴포넌트 퍼블리싱
   - [x] GridView / GridCard 컴포넌트 퍼블리싱
-  - [ ] GridView 언론사 데이터 주입
-
-- 기능개발
-  - [ ] 구독기능 개발 / 적용
-  - [ ] Pagination 컴포넌트 퍼블리싱
-  - [ ] Pagination 기능 개발 / 적용
-
+  - [x] Pagination 컴포넌트 퍼블리싱
 
 ## 1/13(수) ToDo list
 
-- [ ] ListView 설계 및 구현
-- [ ] 다크모드 적용
+- 메인컨텐츠
+  - [ ] GridView 언론사 데이터 주입
+  - [ ] 구독기능 개발 / 적용  
+  - [ ] Pagination 기능 개발 / 적용
+  - [ ] ListView 설계 및 구현
+
+- 기타
+  - [ ] 다크모드 적용
 
 ## 1/14(목) ToDo list
 
