@@ -1,6 +1,6 @@
 import Navigation from "@/components/main-content/navigation/Navigation";
-import GridView from "@/components/main-content/news-view/GridView";
-import ListView from "@/components/main-content/news-view/ListView";
+import GridView from "@/components/main-content/news-view/grid/GridView";
+import ListView from "@/components/main-content/news-view/list/ListView";
 import { SubscriptionProvider } from "@/store/SubscriptionProvider";
 import useNavigation from "@/hooks/useNavigation";
 

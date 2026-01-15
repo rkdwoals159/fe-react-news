@@ -1,5 +1,5 @@
-import GridCard from "@/components/main-content/news-view/GridCard";
-import Pagination from "./Pagination";
+import GridCard from "@/components/main-content/news-view/grid/GridCard";
+import Pagination from "@/components/main-content/news-view/Pagination";
 import { useState, useEffect, useMemo } from "react";
 import type { GridViewItem } from "@/types/api.type";
 import { useSubscription } from "@/store/SubscriptionContext";
