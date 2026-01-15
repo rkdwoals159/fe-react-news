@@ -1,6 +1,6 @@
 import GridCard from "@/components/main-content/news-view/GridCard";
 import Pagination from "./Pagination";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { GridViewItem } from "@/types/api.type";
 import { useSubscription } from "@/store/SubscriptionContext";
 import convertTo2DArr from "@/utils/convertTo2DArr";
@@ -16,6 +16,15 @@ export default function GridView({
   const [gridItems, setGridItems] = useState<GridViewItem[][]>([]);
   const [totalPage, setTotalPage] = useState(0);
   const { subscription } = useSubscription();
+
+  const filteredGridItems = useMemo(() => {
+    return subscriptionTab
+      ? convertTo2DArr(
+          gridItems.flat().filter(({ press }) => subscription.includes(press)),
+          GRID_SIZE
+        )
+      : gridItems;
+  }, [gridItems, subscription, subscriptionTab]);
 
   useEffect(() => {
     (async () => {
@@ -33,18 +42,9 @@ export default function GridView({
     <>
       <section className="w-full" aria-label="언론사 목록">
         <ul className="grid w-full max-w-[930px] max-h-[388px] grid-cols-2 border-t border-l border-border-default bg-surface-default min-[1020px]:grid-cols-6">
-          {subscriptionTab
-            ? convertTo2DArr(
-                gridItems
-                  .flat()
-                  .filter(({ press }) => subscription.includes(press)),
-                GRID_SIZE
-              )[currentPage]?.map(({ press, logo }, idx) => (
-                <GridCard key={`${press}-${idx}`} name={press} logoUrl={logo} />
-              ))
-            : gridItems[currentPage]?.map(({ press, logo }, idx) => (
-                <GridCard key={`${press}-${idx}`} name={press} logoUrl={logo} />
-              ))}
+          {filteredGridItems[currentPage]?.map(({ press, logo }, idx) => (
+            <GridCard key={`${press}-${idx}`} name={press} logoUrl={logo} />
+          ))}
         </ul>
       </section>
       <Pagination
