@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import RollingCard from "@/components/Rolling/RollingCard";
+import RollingCard from "@/components/rolling/RollingCard";
 import type { RollingCardHandle, RollingItem } from "@/types/api.type";
 import { INTERVAL_TIME, OFFSET_TIME } from "@/utils/constants";
 import { fetchGetApi } from "@/api/fetcher";

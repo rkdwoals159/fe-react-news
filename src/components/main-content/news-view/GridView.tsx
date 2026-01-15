@@ -1,4 +1,4 @@
-import GridCard from "@/components/MainContent/NewsView/GridCard";
+import GridCard from "@/components/main-content/news-view/GridCard";
 import Pagination from "./Pagination";
 import { useState, useEffect } from "react";
 import type { GridViewItem } from "@/types/api.type";
@@ -8,9 +8,9 @@ import { GRID_SIZE } from "@/utils/constants";
 import { fetchGetApi } from "@/api/fetcher";
 
 export default function GridView({
-  subscribtionTab,
+  subscriptionTab,
 }: {
-  subscribtionTab: boolean;
+  subscriptionTab: boolean;
 }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [gridItems, setGridItems] = useState<GridViewItem[][]>([]);
@@ -33,7 +33,7 @@ export default function GridView({
     <>
       <section className="w-full" aria-label="언론사 목록">
         <ul className="grid w-full max-w-[930px] max-h-[388px] grid-cols-2 border-t border-l border-border-default bg-surface-default min-[1020px]:grid-cols-6">
-          {subscribtionTab
+          {subscriptionTab
             ? convertTo2DArr(
                 gridItems
                   .flat()

@@ -1,15 +1,15 @@
 import { useSubscription } from "@/store/SubscriptionContext";
 
 export default function SubscriptionTab({
-  setSubscribtionTab,
-  subscribtionTab,
+  setSubscriptionTab,
+  subscriptionTab,
 }: {
-  setSubscribtionTab: (subscribtionTab: boolean) => void;
-  subscribtionTab: boolean;
+  setSubscriptionTab: (subscriptionTab: boolean) => void;
+  subscriptionTab: boolean;
 }) {
   const { subscription } = useSubscription();
-  const handleClick = (isSubscribtionTab: boolean) => {
-    setSubscribtionTab(isSubscribtionTab);
+  const handleClick = (isSubscriptionTab: boolean) => {
+    setSubscriptionTab(isSubscriptionTab);
   };
   return (
     <nav
@@ -17,14 +17,14 @@ export default function SubscriptionTab({
       aria-label="언론사 탭"
     >
       <button
-        className={`${subscribtionTab ? "display-medium16 text-default" : "selected-bold16 text-strong"} px-0 py-[10px] flex items-center`}
+        className={`${subscriptionTab ? "display-medium16 text-default" : "selected-bold16 text-strong"} px-0 py-[10px] flex items-center`}
         type="button"
         onClick={() => handleClick(false)}
       >
         전체 언론사
       </button>
       <button
-        className={`${!subscribtionTab ? "display-medium16 text-default" : "selected-bold16 text-strong"} px-0 py-[10px] flex items-center`}
+        className={`${!subscriptionTab ? "display-medium16 text-default" : "selected-bold16 text-strong"} px-0 py-[10px] flex items-center`}
         type="button"
         onClick={() => handleClick(true)}
       >

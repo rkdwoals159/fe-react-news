@@ -1,6 +1,6 @@
-import Header from "@/components/Header/Header";
-import Rolling from "@/components/Rolling/Rolling";
-import MainContent from "@/components/MainContent/MainContent";
+import Header from "@/components/header/Header";
+import Rolling from "@/components/rolling/Rolling";
+import MainContent from "@/components/main-content/MainContent";
 
 function App() {
   return (

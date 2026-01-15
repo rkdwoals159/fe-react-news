@@ -1,10 +1,10 @@
-import Navigation from "@/components/MainContent/Navigation/Navigation";
-import GridView from "@/components/MainContent/NewsView/GridView";
+import Navigation from "@/components/main-content/navigation/Navigation";
+import GridView from "@/components/main-content/news-view/GridView";
 import { SubscriptionProvider } from "@/store/SubscriptionProvider";
 import { useState } from "react";
 
 export default function MainContent() {
-  const [subscribtionTab, setSubscribtionTab] = useState(false);
+  const [subscriptionTab, setSubscriptionTab] = useState(false);
   return (
     <SubscriptionProvider>
       <section
@@ -12,11 +12,11 @@ export default function MainContent() {
         aria-label="언론사별 기사들을 확인하는 영역"
       >
         <Navigation
-          setSubscribtionTab={setSubscribtionTab}
-          subscribtionTab={subscribtionTab}
+          setSubscriptionTab={setSubscriptionTab}
+          subscriptionTab={subscriptionTab}
         />
         <div className="flex items-center justify-center mt-[18px] relative min-h-[430px] bg-surface-default">
-          <GridView subscribtionTab={subscribtionTab} />
+          <GridView subscriptionTab={subscriptionTab} />
         </div>
       </section>
     </SubscriptionProvider>

@@ -66,6 +66,7 @@
 ## 1/14(목) ToDo list
 
 - 메인컨텐츠
+  - [x] 프로젝트 구조 리빌딩
   - [ ] 구독 기능 모듈화 / 리펙토링
   - [ ] ListView 설계 및 구현
   - [ ] ListPagination 기능 개발 / 적용
@@ -75,15 +76,3 @@
 - 기타
   - [ ] 다크모드 개발 (Context API)
   - [ ] 기능 테스트 / 버그 체크
-
-
-- API/서비스 레이어 만들기
-  - fetch()
-  - Fetch wrapper?를 두기 /libs
-  - 로딩/에러상태 abort 컨트롤러 없음
-
-- Utils 폴더 안에 폴더하나 더 두기
-
-- Subscription 오타 전역처리
-
-- API 응답 타입 미사용

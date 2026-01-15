@@ -1,5 +1,5 @@
-import Logo from "@/components/Header/Logo";
-import Date from "@/components/Header/Date";
+import Logo from "@/components/header/Logo";
+import Date from "@/components/header/Date";
 
 export default function Header() {
   return (
