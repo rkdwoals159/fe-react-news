@@ -3,15 +3,15 @@ import newspaperIcon from "@/assets/icons/newspaper.svg";
 import { useSubscription } from "@/store/SubscriptionContext";
 
 type GridCardProps = {
-  name: string;
+  isEmpty: boolean;
+  name?: string;
   logoUrl?: string;
-  isEmpty?: boolean;
 };
 
 export default function GridCard({
-  name,
+  name = "",
   logoUrl,
-  isEmpty = false,
+  isEmpty,
 }: GridCardProps) {
   const { subscribe } = useSubscription();
   if (isEmpty) {
