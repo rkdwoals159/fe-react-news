@@ -4,9 +4,13 @@ import ViewTab from "@/components/main-content/navigation/ViewTab";
 export default function Navigation({
   setSubscriptionTab,
   subscriptionTab,
+  viewTab,
+  setViewTab,
 }: {
   subscriptionTab: boolean;
   setSubscriptionTab: (isSubscriptionTab: boolean) => void;
+  viewTab: "grid" | "list";
+  setViewTab: (viewTab: "grid" | "list") => void;
 }) {
   return (
     <div className="flex items-end justify-between gap-[14px] px-[2px]">
@@ -14,7 +18,7 @@ export default function Navigation({
         setSubscriptionTab={setSubscriptionTab}
         subscriptionTab={subscriptionTab}
       />
-      <ViewTab />
+      <ViewTab viewTab={viewTab} setViewTab={setViewTab} />
     </div>
   );
 }
