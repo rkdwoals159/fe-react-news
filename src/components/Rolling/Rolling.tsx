@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import RollingCard from "@/components/Rolling/RollingCard";
 import type { RollingCardHandle, RollingItem } from "@/types/api.type";
 import { INTERVAL_TIME, OFFSET_TIME } from "@/utils/constants";
+import { fetchGetApi } from "@/api/fetcher";
 
 export default function Rolling() {
   const [rollingItems, setRollingItems] = useState<RollingItem[][]>([]);
@@ -10,16 +11,17 @@ export default function Rolling() {
   const rollingCardRef1 = useRef<RollingCardHandle>(null);
 
   useEffect(() => {
-    fetch("/api/news/rolling", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }).then(async (res) => {
-      const data = await res.json();
-      setRollingItems(data);
-    });
+    (async () => {
+      try {
+        const data = await fetchGetApi<RollingItem[][]>("/api/news/rolling");
+        setRollingItems(data);
+      } catch (error) {
+        console.error("데이터 로딩 실패:", error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
     const intervalId = window.setInterval(() => {
       rollingCardRef0.current?.roll();
       rollingCardRef1.current?.roll();

@@ -5,6 +5,7 @@ import type { GridViewItem } from "@/types/api.type";
 import { useSubscription } from "@/store/SubscriptionContext";
 import convertTo2DArr from "@/utils/convertTo2DArr";
 import { GRID_SIZE } from "@/utils/constants";
+import { fetchGetApi } from "@/api/fetcher";
 
 export default function GridView({
   subscribtionTab,
@@ -17,18 +18,17 @@ export default function GridView({
   const { subscription } = useSubscription();
 
   useEffect(() => {
-    fetch("/api/news/gridView", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    }).then(async (res) => {
-      const data = await res.json();
-      setGridItems(data);
-      setTotalPage(data.length - 1);
-    });
+    (async () => {
+      try {
+        const data = await fetchGetApi<GridViewItem[][]>("/api/news/gridView");
+        setGridItems(data);
+        setTotalPage(data.length - 1);
+      } catch (error) {
+        console.error("데이터 로딩 실패:", error);
+      }
+    })();
   }, []);
+
   return (
     <>
       <section className="w-full" aria-label="언론사 목록">

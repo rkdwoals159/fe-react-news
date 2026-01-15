@@ -1,0 +1,9 @@
+export async function fetchGetApi<T = unknown>(url: string): Promise<T> {
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(res.status.toString());
+  }
+
+  return res.json();
+}
