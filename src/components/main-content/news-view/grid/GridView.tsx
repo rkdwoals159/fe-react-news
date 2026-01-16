@@ -1,6 +1,6 @@
 import GridCard from "@/components/main-content/news-view/grid/GridCard";
 import Pagination from "@/components/main-content/news-view/Pagination";
-import { useState, useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { GridViewItem } from "@/types/api.type";
 import { useSubscription } from "@/store/SubscriptionContext";
 import convertTo2DArr from "@/utils/convertTo2DArr";
@@ -21,14 +21,21 @@ export default function GridView({
   const subscriptionSet = useMemo(() => new Set(subscription), [subscription]);
 
   useEffect(() => {
+    let isMounted = true;
     (async () => {
       try {
         const data = await fetchGetApi<GridViewItem[][]>("/api/news/gridView");
-        setGridItems(data);
+        if (isMounted) {
+          setGridItems(data);
+        }
       } catch (error) {
         console.error("데이터 로딩 실패:", error);
       }
     })();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const filteredGridItems = useMemo(() => {

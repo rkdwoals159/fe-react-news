@@ -1,8 +1,12 @@
+import { lazy, Suspense } from "react";
 import Navigation from "@/components/main-content/navigation/Navigation";
 import GridView from "@/components/main-content/news-view/grid/GridView";
-import ListView from "@/components/main-content/news-view/list/ListView";
 import { SubscriptionProvider } from "@/store/SubscriptionProvider";
 import useNavigation from "@/hooks/useNavigation";
+
+const ListView = lazy(
+  () => import("@/components/main-content/news-view/list/ListView")
+);
 
 export default function MainContent() {
   const {
@@ -34,7 +38,9 @@ export default function MainContent() {
               setCurrentPage={setCurrentPage}
             />
           ) : (
-            <ListView />
+            <Suspense fallback={<div className="w-full">로딩중...</div>}>
+              <ListView />
+            </Suspense>
           )}
         </div>
       </section>

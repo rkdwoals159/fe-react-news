@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { SubscriptionContext } from "./SubscriptionContext";
 
 // 컨텍스트 제공
@@ -8,19 +8,24 @@ export function SubscriptionProvider({
   children: React.ReactNode;
 }) {
   const [subscription, setSubscription] = useState<string[]>([]);
-  const subscribe = (subscription: string) =>
-    setSubscription((prev) => [...prev, subscription]);
-  const unsubscribe = (subscription: string) =>
-    setSubscription((prev) => prev.filter((s) => s !== subscription));
+  const subscribe = useCallback((nextSubscription: string) => {
+    setSubscription((prev) => [...prev, nextSubscription]);
+  }, []);
+  const unsubscribe = useCallback((nextSubscription: string) => {
+    setSubscription((prev) => prev.filter((s) => s !== nextSubscription));
+  }, []);
+
+  const value = useMemo(
+    () => ({
+      subscription,
+      subscribe,
+      unsubscribe,
+    }),
+    [subscription, subscribe, unsubscribe]
+  );
 
   return (
-    <SubscriptionContext.Provider
-      value={{
-        subscription,
-        subscribe,
-        unsubscribe,
-      }}
-    >
+    <SubscriptionContext.Provider value={value}>
       {children}
     </SubscriptionContext.Provider>
   );
