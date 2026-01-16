@@ -18,6 +18,7 @@ export default function GridView({
 }) {
   const [gridItems, setGridItems] = useState<GridViewItem[][]>([]);
   const { subscription } = useSubscription();
+  const subscriptionSet = useMemo(() => new Set(subscription), [subscription]);
 
   useEffect(() => {
     (async () => {
@@ -33,30 +34,30 @@ export default function GridView({
   const filteredGridItems = useMemo(() => {
     return subscriptionTab
       ? convertTo2DArr(
-          gridItems.flat().filter(({ press }) => subscription.includes(press)),
+          gridItems.flat().filter(({ press }) => subscriptionSet.has(press)),
           GRID_SIZE
         )
       : gridItems;
-  }, [gridItems, subscription, subscriptionTab]);
+  }, [gridItems, subscriptionSet, subscriptionTab]);
+
+  const pageItems = filteredGridItems[currentPage] ?? [];
 
   return (
     <>
       <section className="w-full" aria-label="언론사 목록">
         <ul className="grid w-full max-w-[930px] max-h-[388px] grid-cols-2 border-t border-l border-border-default bg-surface-default min-[1020px]:grid-cols-6">
           {Array.from({ length: GRID_SIZE }, (_, index) => {
-            if (filteredGridItems[currentPage]) {
-              const nowPress = filteredGridItems[currentPage][index];
-              return nowPress ? (
-                <GridCard
-                  isEmpty={false}
-                  key={`${nowPress.press}-${index}`}
-                  name={nowPress.press}
-                  logoUrl={nowPress.logo}
-                />
-              ) : (
-                <GridCard isEmpty={true} key={`empty-${index}`} />
-              );
-            }
+            const nowPress = pageItems[index];
+            return nowPress ? (
+              <GridCard
+                isEmpty={false}
+                key={`${nowPress.press}-${index}`}
+                name={nowPress.press}
+                logoUrl={nowPress.logo}
+              />
+            ) : (
+              <GridCard isEmpty={true} key={`empty-${index}`} />
+            );
           })}
         </ul>
       </section>
