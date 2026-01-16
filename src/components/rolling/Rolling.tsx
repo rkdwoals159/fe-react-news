@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import RollingCard from "@/components/rolling/RollingCard";
 import type { RollingCardHandle, RollingItem } from "@/types/api.type";
 import { INTERVAL_TIME, OFFSET_TIME } from "@/utils/constants";
@@ -7,19 +7,26 @@ import { fetchGetApi } from "@/api/fetcher";
 export default function Rolling() {
   const [rollingItems, setRollingItems] = useState<RollingItem[][]>([]);
 
-  const rollingCardRef0 = useRef<RollingCardHandle>(null);
-  const rollingCardRef1 = useRef<RollingCardHandle>(null);
-
   useEffect(() => {
+    let isMounted = true;
     (async () => {
       try {
         const data = await fetchGetApi<RollingItem[][]>("/api/news/rolling");
-        setRollingItems(data);
+        if (isMounted) {
+          setRollingItems(data);
+        }
       } catch (error) {
         console.error("데이터 로딩 실패:", error);
       }
     })();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
+
+  const rollingCardRef0 = useRef<RollingCardHandle>(null);
+  const rollingCardRef1 = useRef<RollingCardHandle>(null);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
